@@ -147,6 +147,7 @@
 .voice-page .detail-section p { max-width: 76ch; color: var(--voice-soft); line-height: 1.9; }
 
 .voice-page .wakayama-feature,
+.voice-page .yukimegu-feature,
 .voice-page .voice-timeline {
   position: relative;
   overflow: hidden;
@@ -157,6 +158,7 @@
 }
 
 .voice-page .wakayama-feature::before,
+.voice-page .yukimegu-feature::before,
 .voice-page .voice-timeline::before {
   position: absolute;
   inset: 0 auto 0 0;
@@ -166,8 +168,10 @@
 }
 
 .voice-page .wakayama-feature > div,
+.voice-page .yukimegu-feature > div,
 .voice-page .voice-timeline > div { position: relative; }
-.voice-page .wakayama-feature p:not(.mono) { font-size: clamp(1.05rem, 1.55vw, 1.25rem); line-height: 1.95; }
+.voice-page .wakayama-feature p:not(.mono),
+.voice-page .yukimegu-feature p:not(.mono) { font-size: clamp(1.05rem, 1.55vw, 1.25rem); line-height: 1.95; }
 
 .voice-page .voice-timeline {
   display: grid;
@@ -275,6 +279,7 @@
   .voice-page .role-card img,
   .voice-page .role-card:not(.role-card--paired) > .role-image-link img { height: clamp(200px, 55vw, 320px); }
   .voice-page .wakayama-feature,
+  .voice-page .yukimegu-feature,
   .voice-page .voice-timeline { margin-block: 14px; padding: 28px 22px; }
 }
 
@@ -307,6 +312,11 @@
     transition: none !important;
   }
 }
+
+.voice-page .yukimegu-feature .yukimegu-channel-link { display: inline-flex; align-items: center; gap: 12px; padding: 13px 18px; border: 1px solid #e0b8cf88; color: var(--voice-ink); font-size: .92rem; text-decoration: none; transition: border-color .2s ease, background-color .2s ease; }
+.voice-page .yukimegu-feature .yukimegu-channel-link:hover,
+.voice-page .yukimegu-feature .yukimegu-channel-link:focus-visible { border-color: var(--voice-accent); background: #e0b8cf0c; }
+.voice-page .yukimegu-feature .source-note { margin-top: 18px; font-size: .82rem; }
 
 /* Official account and show links at the end of the voice profile. */
 .voice-page .voice-accounts {
