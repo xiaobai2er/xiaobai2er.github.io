@@ -1,24 +1,23 @@
-# 林玄棣｜五款個人網站提案
+# 個人網站
 
-這是一個獨立製作的靜態網站，沒有使用參考網站的程式碼、圖片或文字。五款版型共用同一份個人資料，使用原生 HTML、CSS、JavaScript，沒有建置套件需求。
+這是以 GitHub Pages 靜態發布的個人網站，沒有建置流程或外部套件需求。網站由根目錄的 HTML、CSS 與 JavaScript 檔案組成，連結採用根目錄相對路徑。
 
-## 預覽
+## 預覽網站
 
-直接開啟 `index.html` 可瀏覽五款方案。若瀏覽器限制本機 iframe，請在本資料夾執行：
+在專案根目錄啟動本機靜態伺服器：
 
 ```bash
 python -m http.server 8765
 ```
 
-再開啟 `http://localhost:8765/`。點選「放大預覽」可切換桌機與手機畫面；點選「開啟完整頁面」可瀏覽完整網站。網址 `site.html?theme=minimal`、`lab`、`editorial`、`dashboard`、`timeline` 分別對應五款。
+接著瀏覽 `http://localhost:8765/`。主入口是 `index.html`；其他主網站頁面包括 `career.html`、`projects.html`、`resume.html`、`voice.html`、`bands.html` 與 `ramen.html`。`templates.html` 與 `site.html` 是獨立的舊版版型預覽系統，可直接開啟 `templates.html`，或以 `site.html?theme=minimal`、`?theme=lab`、`?theme=editorial`、`?theme=dashboard`、`?theme=timeline` 切換預覽版型。
 
-## 修改內容
+## 檔案分工
 
-- `content.js`：姓名、簡介、經歷、工具與聯絡連結。五款會同步更新。
-- `styles.css`：配色、字型與版面。
-- `site.js`：五款頁面結構。
-- `index.html`：模板比較首頁。
+- 主網站 HTML 頁面提供各頁內容與結構；`index.html` 是路線圖首頁，其餘頁面呈現職涯、專案、履歷、聲優、樂團與拉麵地圖內容。
+- `content.js` 集中保存主網站共用的個人資料與頁面內容資料，由首頁及需要資料的內頁載入。
+- `style.css` 是主網站共用的唯一樣式表，包含基礎樣式、內頁共用樣式，以及樂團時間軸與聲優頁專屬樣式。主網站各 HTML 頁面以帶版本參數的連結載入此檔。
+- `styles.css`、`site.js`、`gallery.js` 僅供舊版 `templates.html`／`site.html` 預覽系統使用；`styles.css` 不屬於主網站的樣式表。
+- 功能腳本各自維持獨立：`navigation.js` 處理導覽，`bands-player.js` 與 `bands-background.js` 負責播放器及樂團頁背景，`ramen-map.js` 負責拉麵地圖，`bands-timeline.js` 負責樂團時間軸，`pages.js` 負責內頁顯示效果，`script.js` 負責首頁路線圖互動。
 
-目前的工作經歷文字根據已提供的資訊撰寫，未加入未經確認的成果數字。英文姓名、聯絡方式及履歷檔尚未提供，因此沒有擅自填入。若要加入履歷下載，將 PDF 放在網站資料夾，並在 `content.js` 的 `links.resume` 填入相對路徑，例如 `./resume.pdf`。
-
-若選定一款作正式首頁，可以將該款的 `site.html?theme=...` 作為網站入口，或再將它整理成單獨的 `index.html`。在此之前，這份成品僅是供選擇與修改的預覽，未發布到任何人的網站。
+網站可直接部署至 GitHub Pages，不需要安裝相依套件或執行打包程序。
